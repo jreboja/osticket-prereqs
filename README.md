@@ -3,7 +3,7 @@
 </p>
 
 <h1>osTicket - Prerequisites and Installation</h1>
-In this lab, I install osTicket from the ground up using the necessary installation files. There are a few steps to take before the installation of the ticketing system. This lab is done using a Windows 10 Pro VM made on Azure. The necessary installation files that are referenced and used are located <a href="https://drive.google.com/drive/u/2/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6">here!</a><br />
+In this tutorial, we'll be installing osTicket from scratch on a Windows 10 Pro Virtual Machine created on Azure. Before we can proceed with the installation of the ticketing system, there are a few important preliminary steps to follow. You'll also need to access and utilize the required installation files, which are available <a href="https://drive.google.com/drive/u/2/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6">here!</a><br />
 
 
 <h2>Environments and Technologies Used</h2>
@@ -15,7 +15,7 @@ In this lab, I install osTicket from the ground up using the necessary installat
 
 <h2>Operating Systems Used </h2>
 
-- Windows 10 Pro</b> (21H2)
+- Windows 10 Pro</b>
 
 
 <h2>Installation Steps</h2>
@@ -123,33 +123,64 @@ By following these steps, you will have successfully installed MySQL 5.5.62 with
 <br />
 
 <p>
-<img src="https://i.imgur.com/UW2eIpW.png" height="80%" width="80%" alt="Installation Steps"/>
-</p>
-<p>
-Next, download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation files. Within the MySQL setup wizard, click "I agree" and select a Typical install and Install. Launch the Configuration Wizard after the installation. Select Standard Configuration and select Install As Windows Service and make sure Launch the MySQL Server automatically is checked. For credentials, the username will be root and the password is Password1. In a practical setting, the credentials will be decided by the user. For the purposes of this lab, the standard credentials root and Password1 will do.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/9ylqXGk.png" height="80%" width="80%" alt="Installation Steps"/>
-<img src="https://i.imgur.com/KoK1Lug.png" height="80%" width="80%" alt="Installation Steps"/>
-</p>
-<p>
 Before installing osTicket, configurations need to be made within IIS. Open IIS as an admin and select PHP Manager. Within PHP Manager, select Register new PHP version. Select Browse and select the PHP CGI executable file (php-cgi.exe) within the PHP folder created earlier in the lab. After registering the PHP version, reload the IIS server within the management console.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/ivQmua0.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/dEvHz6n.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-From the installation files, download osTicket v1.15.8. Extract and copy the "upload" folder to the following path: c:\inetpub\wwwroot. Within the c:\inetpub\wwwroot folder, rename "upload" to "osTicket." Reload the IIS server afterwards.
+Certainly, here are the steps to download, extract, and configure osTicket v1.15.8 on your Windows server:
+
+1. **Download osTicket**:
+   - Locate and download osTicket version 1.15.8 from the installation files.
+
+2. **Extract the "upload" Folder**:
+   - After downloading, extract the contents of the osTicket package.
+   - You will find an "upload" folder within the extracted files.
+
+3. **Copy to wwwroot**:
+   - Copy the entire "upload" folder.
+
+4. **Paste to c:\inetpub\wwwroot**:
+   - Navigate to the `c:\inetpub\wwwroot` directory.
+
+5. **Rename "upload" Folder**:
+   - Paste the copied "upload" folder into the `c:\inetpub\wwwroot` directory.
+   - Rename the "upload" folder to "osTicket" (without quotes).
+
+6. **Reload IIS**:
+   - After renaming the folder, you should reload or restart the Internet Information Services (IIS) server to apply the changes and make osTicket accessible via a web browser.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/s856Cpz.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/ECTaxS8.png" height="80%" width="80%" alt="Installation Steps"/>
+To verify if osTicket has been correctly placed in the directory and is accessible through IIS using the "Browse *:80 (http)" option, follow these steps:
+
+1. **Open IIS Manager**:
+   - Press the **Windows key** on your keyboard, type "IIS" or "Internet Information Services," and select the "Internet Information Services (IIS) Manager" from the search results. Alternatively, you can open IIS Manager from the Administrative Tools in the Control Panel.
+
+2. **Navigate to Sites**:
+   - In IIS Manager, expand the node for your server in the left-hand Connections pane.
+   - Click on the "Sites" node to reveal the list of websites hosted on your server.
+
+3. **Locate Your Website**:
+   - In the Sites list, you should see your default website or the website you have configured to host osTicket. The site name should be "osTicket" or the name you gave during configuration.
+
+4. **Right-Click and Choose "Manage Website"**:
+   - Right-click on the website name (e.g., "osTicket") and select "Manage Website" from the context menu.
+
+5. **Choose "Browse" Option**:
+   - In the "Manage Website" submenu, hover over "Browse" to reveal additional options, and then select "Browse *:80 (http)."
+
+6. **Verify osTicket**:
+   - Your default web browser should open, and it should navigate to the osTicket website. You should see the osTicket login page or the initial setup page, indicating that osTicket has been correctly placed in the directory and is accessible through IIS using the "Browse *:80 (http)" option.
 <img src="https://i.imgur.com/pNkLVo6.png" height="80%" width="80%" alt="Installation Steps"/>
+
+Checking through "Browse *:80 (http)" in IIS Manager allows you to test the website's accessibility directly within the IIS Manager interface. If you can access osTicket using this method, it indicates that the installation is correct and accessible through your web server.
+</p>
 <img src="https://i.imgur.com/Mpq7ybU.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
