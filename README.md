@@ -21,7 +21,7 @@ In this lab, I install osTicket from the ground up using the necessary installat
 <h2>Installation Steps</h2>
 
 <p>
-<img src="[https://i.imgur.com/m6Bek7Y.png](https://imgur.com/IASqI53)" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/IASqI53.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
 Before you start installing any files, you'll need to enable Internet Information Services (IIS). This is necessary because we're setting up osTicket on your local system, and it relies on IIS to work properly.
@@ -47,7 +47,7 @@ By following these steps, you'll have IIS up and running, allowing you to procee
 <br />
 
 <p>
-<img src="https://imgur.com/04Uasfc" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/04Uasfc.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
 Once you've activated IIS, the next steps involve downloading and installing a couple of components:
@@ -61,7 +61,7 @@ These two components are essential for configuring and enhancing your IIS setup.
 <br />
 
 <p>
-<img src="https://imgur.com/lH8zFgj" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/lH8zFgj.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
 Once you've successfully installed the Rewrite Module, follow these steps to set up a new folder on your C: drive and extract the contents from the PHP 7.3.8 zip folder:
@@ -75,7 +75,7 @@ By completing these steps, you'll have set up a dedicated folder for PHP and ext
 <br />
 
 <p>
-<img src="https://imgur.com/N4aJttU" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/N4aJttU.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
 After completing the previous steps, proceed to download and install "VC_redist.x86.exe" from the installation files. This is an important component for ensuring compatibility and functionality within your setup.
@@ -83,7 +83,7 @@ After completing the previous steps, proceed to download and install "VC_redist.
 <br />
 
 <p>
-<img src="https://imgur.com/4yfyXxK" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/4yfyXxK.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
 Next, follow these steps to download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation files:
