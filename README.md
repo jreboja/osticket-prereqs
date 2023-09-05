@@ -21,42 +21,104 @@ In this lab, I install osTicket from the ground up using the necessary installat
 <h2>Installation Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/m6Bek7Y.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="[https://i.imgur.com/m6Bek7Y.png](https://imgur.com/IASqI53)" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Before installing any files, Internet Information Services (IIS) needs to be enabled. We are installing osTicket locally and it needs IIS in order to function. To turn on IIS, open the Control Panel. From the Control Panel, open Programs and and Turn Windows Features On or Off. Within this menu, expand Internet Information Services, expand Web Management Tools and enable IIS Management Console. Click and expand World Wide Web Services and expand Application Development Features. In Application Development Features, enable CGI and click ok to confirm.
+Before you start installing any files, you'll need to enable Internet Information Services (IIS). This is necessary because we're setting up osTicket on your local system, and it relies on IIS to work properly.
+
+To activate IIS, follow these steps:
+
+1. Open the Control Panel.
+
+2. In the Control Panel, locate the "Programs" section and click on "Turn Windows Features On or Off."
+
+3. In the window that appears, find "Internet Information Services" and expand it.
+
+4. Next, expand "Web Management Tools" and make sure to enable "IIS Management Console."
+
+5. Now, click to expand "World Wide Web Services" and then expand "Application Development Features."
+
+6. Inside the "Application Development Features" section, make sure to enable "CGI."
+
+7. Finally, click "OK" to confirm your selections.
+
+By following these steps, you'll have IIS up and running, allowing you to proceed with the installation of osTicket.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/RB5YByC.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/04Uasfc" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-After enabling IIS, download and install PHP Manager for IIS (PHPManagerforIIS_V1.5.0.msi) from the installtion files folder. Download and install the Rewrite Module (rewrite_amd64_en-US.msi) after installing PHP Manager for IIS.
+Once you've activated IIS, the next steps involve downloading and installing a couple of components:
+
+1. **PHP Manager for IIS**: Head to the installation files folder and download and install "PHPManagerforIIS_V1.5.0.msi."
+
+2. **Rewrite Module**: After you've installed PHP Manager for IIS, proceed to download and install the "rewrite_amd64_en-US.msi."
+
+These two components are essential for configuring and enhancing your IIS setup.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/neliVrg.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/lH8zFgj" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-After installing the Rewrite Module, create a new folder/directory called C:\PHP on the Windows (C:) drive. This new folder will be used to unzip the contents from the PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) zip folder downloaded from the installation files. Extract all contents from the zip folder into the C:\PHP folder.
+Once you've successfully installed the Rewrite Module, follow these steps to set up a new folder on your C: drive and extract the contents from the PHP 7.3.8 zip folder:
+
+1. **Create a New Folder**: On your C: drive (Windows (C:)), create a new folder or directory named "C:\PHP." This folder will serve as the destination for the PHP files.
+
+2. **Unzip PHP Contents**: Locate the PHP 7.3.8 zip folder (named "php-7.3.8-nts-Win32-VC15-x86.zip") that you downloaded from the installation files. Extract all the files and folders from this zip folder and place them into the newly created "C:\PHP" folder.
+
+By completing these steps, you'll have set up a dedicated folder for PHP and extracted its contents into that directory, which is essential for configuring PHP to work with your IIS setup.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/mYKZExi.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/N4aJttU" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Next, download and install VC_redist.x86.exe from the installation files.
+After completing the previous steps, proceed to download and install "VC_redist.x86.exe" from the installation files. This is an important component for ensuring compatibility and functionality within your setup.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/UW2eIpW.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://imgur.com/4yfyXxK" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Next, download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation files. Within the MySQL setup wizard, click "I agree" and select a Typical install and Install. Launch the Configuration Wizard after the installation. Select Standard Configuration and select Install As Windows Service and make sure Launch the MySQL Server automatically is checked. For credentials, the username will be root and the password is Password1. In a practical setting, the credentials will be basic to where they can be easily guessed. For the purposes of this lab, the standard credentials root and Password1 will do.
+Next, follow these steps to download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation files:
+
+1. **Download MySQL**: Locate and download the MySQL 5.5.62 installer, which is named "mysql-5.5.62-win32.msi."
+
+2. **Installation Wizard**:
+   - Run the installer to launch the MySQL setup wizard.
+   - Accept the license agreement by clicking "I agree."
+
+3. **Select Installation Type**:
+   - Choose "Typical" as the installation type.
+
+4. **Install**:
+   - Click the "Install" button to begin the installation process.
+
+5. **Launch Configuration Wizard**:
+   - After the installation is complete, launch the MySQL Configuration Wizard.
+
+6. **Configuration Settings**:
+   - In the Configuration Wizard, select "Standard Configuration."
+
+7. **Windows Service**:
+   - Make sure to select "Install As Windows Service."
+
+8. **Automatic Launch**:
+   - Ensure that the option "Launch the MySQL Server automatically" is checked.
+
+9. **Credentials**:
+   - For the purpose of this lab, the standard credentials will be used: Username: "root" and Password: "Password1." Please note that in a real-world scenario, it's crucial to use strong, unique passwords. The use of basic credentials like these is not recommended outside of a controlled lab environment.
+
+10. **Complete Setup**:
+    - Follow any remaining prompts in the Configuration Wizard to complete the MySQL installation and configuration.
+
+By following these steps, you will have successfully installed MySQL 5.5.62 with the specified settings. Remember to use secure credentials in production environments to enhance security.
 </p>
 <br />
 
