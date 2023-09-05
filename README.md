@@ -123,15 +123,41 @@ By following these steps, you will have successfully installed MySQL 5.5.62 with
 <br />
 
 <p>
-Before installing osTicket, configurations need to be made within IIS. Open IIS as an admin and select PHP Manager. Within PHP Manager, select Register new PHP version. Select Browse and select the PHP CGI executable file (php-cgi.exe) within the PHP folder created earlier in the lab. After registering the PHP version, reload the IIS server within the management console.
-</p>
+Before you proceed with installing osTicket, you need to configure PHP within IIS using the PHP Manager. Here are the steps:
+
+1. **Open IIS as an Admin**:
+   - Ensure that you are logged in as an administrator on your Windows server.
+   - Press the **Windows key**, type "IIS," and right-click on "Internet Information Services (IIS) Manager."
+   - Select "Run as administrator" to open IIS with administrative privileges.
+
+2. **Access PHP Manager**:
+   - In IIS Manager, select your server in the left-hand Connections pane.
+
+3. **Double-Click "PHP Manager"**:
+   - Double-click on the "PHP Manager" icon in the center pane. This will open the PHP Manager interface.
+
+4. **Register New PHP Version**:
+   - In PHP Manager, click on the "Register new PHP version" option.
+
+5. **Browse for PHP CGI Executable**:
+   - Click on the "Browse" button to locate the PHP CGI executable file (php-cgi.exe) within the PHP folder you created earlier during the lab setup.
+
+6. **Select php-cgi.exe**:
+   - Navigate to the PHP folder you created (e.g., "C:\PHP") and select the "php-cgi.exe" file.
+
+7. **Register PHP Version**:
+   - After selecting "php-cgi.exe," click "OK" or "Open" to register this PHP version with IIS.
+
+8. **Reload IIS Server**:
+   - Finally, in the IIS Manager, you can reload the IIS server to apply the changes. You can do this by selecting your server in the Connections pane and clicking on the "Restart" option in the right-hand Actions pane.
+
+By following these steps, you will have configured PHP within IIS using PHP Manager, ensuring that PHP is properly registered and can be used for osTicket and other web applications hosted on your server.</p>
 <br />
 
 <p>
 <img src="https://i.imgur.com/dEvHz6n.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Certainly, here are the steps to download, extract, and configure osTicket v1.15.8 on your Windows server:
 
 1. **Download osTicket**:
    - Locate and download osTicket version 1.15.8 from the installation files.
@@ -157,6 +183,7 @@ Certainly, here are the steps to download, extract, and configure osTicket v1.15
 
 <p>
 <img src="https://i.imgur.com/ECTaxS8.png" height="80%" width="80%" alt="Installation Steps"/>
+</p>
 To verify if osTicket has been correctly placed in the directory and is accessible through IIS using the "Browse *:80 (http)" option, follow these steps:
 
 1. **Open IIS Manager**:
@@ -183,17 +210,82 @@ Checking through "Browse *:80 (http)" in IIS Manager allows you to test the webs
 </p>
 <img src="https://i.imgur.com/Mpq7ybU.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
-<p>
-Within the IIS console, browse to Sites -> Default -> osTicket. Click "Browse *:80" and the installation page for osTicket will now show up. Some extensions are not enabled and they will be enabled with the IIS console before installing osTicket. To do so, click on PHP Manager while in the osTicket menu in IIS. Click on "Enable or disable an extension." Enable the following extentions: php_imap.dll, php_intl.dll, php_opcache.dll.
-</p>
+
 <br />
 
 <p>
 <img src="https://i.imgur.com/CdkPTsv.png" height="80%" width="80%" alt="Installation Steps"/>
+</p>
+<p>
+1. **Open IIS Manager**:
+   - Launch the Internet Information Services (IIS) Manager on your Windows server.
+
+2. **Navigate to PHP Manager**:
+   - In IIS Manager, select your server in the Connections pane on the left-hand side.
+
+3. **Click on "PHP Manager"**:
+   - In the center pane, under "IIS," you should see an icon labeled "PHP Manager" if PHP is installed correctly. Click on it.
+
+4. **Enable or Disable an Extension**:
+   - In the PHP Manager menu, under the "PHP Extensions" section, click on "Enable or disable an extension."
+
+5. **Enable Extensions**:
+   - In the "Enable or Disable an Extension" window, you'll see a list of available PHP extensions.
+   - Find and enable the following extensions by checking the corresponding checkboxes:
+     - `php_imap.dll`
+     - `php_intl.dll`
+     - `php_opcache.dll`
+
+6. **Apply Changes**:
+   - After selecting these extensions, click the "Apply Changes" button to enable them.
+
+7. **Restart IIS**:
+   - To ensure that the changes take effect, it's a good practice to restart the IIS server. You can do this by selecting your server in the Connections pane, and in the Actions pane on the right-hand side, click on "Restart."
 <img src="https://i.imgur.com/5ggnkk9.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Before continuing to install osTicket, a file needs to be renamed as well as have its permissions changed. From C:\inetpub\wwwroot\osTicket\include, rename ost-sampleconfig.php to ost-config.php. The newly named ost-config.php will have its permissions changed. Open its Properties and change the following permissions: Disable inheritence -> Remove All and New Permissions -> Everyone -> All.
+Before proceeding with the osTicket installation, you need to rename a file and change its permissions as follows:
+
+1. **Rename the File**:
+
+   - Navigate to the directory: `C:\inetpub\wwwroot\osTicket\include`.
+   - In this directory, you should find a file named `ost-sampleconfig.php`.
+   - Rename `ost-sampleconfig.php` to `ost-config.php`. You can do this by right-clicking the file, selecting "Rename," and then entering the new name.
+
+2. **Change File Permissions**:
+
+   - Right-click on the newly renamed `ost-config.php` file and select "Properties."
+
+3. **Disable Inheritance**:
+
+   - In the Properties window, go to the "Security" tab.
+   - Click on the "Advanced" button to access advanced security settings.
+
+4. **Remove All Inherited Permissions**:
+
+   - In the "Advanced Security Settings for ost-config.php" window, click on the "Disable inheritance" button.
+   - A prompt will appear asking if you want to remove all inherited permissions. Confirm by selecting "Remove all inherited permissions from this object."
+
+5. **Add New Permissions**:
+
+   - Back in the "Advanced Security Settings" window, click the "Add" button to add new permissions.
+
+6. **Set Permissions for "Everyone"**:
+
+   - In the "Select a principal" dialog box, type "Everyone" into the object name field, and then click "Check Names" to validate it.
+   - Click "OK" to confirm "Everyone" as the principal.
+
+7. **Set Permissions for "Everyone" to "All"**:
+
+   - In the "Permission Entry" dialog box, under the "Basic Permissions" section, check the box for "Full control" to grant full permissions to everyone.
+   - Click "OK" to apply the changes.
+
+8. **Apply and Close**:
+
+   - Back in the "Advanced Security Settings" window, you should now see "Everyone" listed with "Full control" permissions.
+   - Click "OK" to close the "Advanced Security Settings" window.
+
+By following these steps, you have renamed the file to `ost-config.php` and adjusted its permissions to grant full control to everyone. This should ensure that osTicket can access and modify this configuration file as needed during the installation and operation of the ticketing system.
 </p>
 <br />
 
@@ -202,7 +294,52 @@ Before continuing to install osTicket, a file needs to be renamed as well as hav
 <img src="https://i.imgur.com/PiJMYZ6.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-From the installation files, download and install HeidiSQL. Create a new session with HeidiSQL and enter the password used in the installation of MySQL earlier. Within the new session, right-click on Unnamed and create a new database named osTicket. 
+1. **Download and Install HeidiSQL**:
+
+   - Download the HeidiSQL installer from the installation files and run it.
+   - Follow the on-screen instructions to install HeidiSQL on your Windows machine.
+
+2. **Launch HeidiSQL**:
+
+   - After the installation is complete, launch HeidiSQL from your computer.
+
+3. **Create a New Session**:
+
+   - In HeidiSQL, click on "File" in the top-left corner.
+   - Select "New Session" from the dropdown menu.
+
+4. **Configure the Connection**:
+
+   - In the "Session manager" window:
+     - Enter a session name (e.g., "osTicket Database").
+     - In the "Settings" tab, configure the following:
+       - **Network Type**: MySQL (TCP/IP).
+       - **Hostname / IP**: Enter the IP address or hostname of your MySQL server.
+       - **User**: Enter the username (usually "root" by default).
+       - **Password**: Enter the password you used during the MySQL installation earlier.
+     - Leave other settings at their defaults unless you have specific requirements.
+
+5. **Connect to the MySQL Server**:
+
+   - Click the "Open" button to connect to the MySQL server using the provided credentials.
+
+6. **Create a New Database**:
+
+   - In the left-hand panel of HeidiSQL, you'll see a tree structure with your MySQL server connection.
+   - Right-click on "Unnamed" (or your server name) and select "Create New" > "Database."
+
+7. **Enter Database Details**:
+
+   - In the "Create New Database" dialog:
+     - Enter "osTicket" as the "Database name."
+     - Choose the default character set and collation unless you have specific requirements.
+     - Click "OK" to create the new database.
+
+8. **Confirm Database Creation**:
+
+   - You should now see the "osTicket" database listed under your MySQL server connection in the left-hand panel of HeidiSQL.
+
+You have successfully installed HeidiSQL, created a new session, and created a new database named "osTicket" within that session. This database will be used for your osTicket installation and configuration.
 </p>
 <br />
 
@@ -219,10 +356,32 @@ Within osTicket browser window, enter the necessary details to set up osTicket. 
 <img src="https://i.imgur.com/7V2YmH6.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-After everything is done, osTicket should now be installed! Before continuing to use osTicket, some clean up has to be done. First, delete the setup folder found in C:\inetpub\wwwroot\osTicket. Next, return to C:\inetpub\wwwroot\osTicket\include and change the permissions of the ost-config.php file. The file should no longer have full access to Everyone. Revert the permissions to "Read" only. 
+To complete the cleanup process after installing osTicket, follow these steps:
+
+1. **Delete the Setup Folder**:
+   - Navigate to the `C:\inetpub\wwwroot\osTicket` directory.
+   - Locate and delete the "setup" folder. This folder was used during the initial osTicket setup but is no longer needed.
+
+2. **Change Permissions for ost-config.php**:
+   - Navigate to the `C:\inetpub\wwwroot\osTicket\include` directory.
+   - Locate the `ost-config.php` file.
+
+3. **Open File Properties**:
+   - Right-click on `ost-config.php` and select "Properties."
+
+4. **Modify Permissions**:
+   - In the "Properties" window, go to the "Security" tab.
+
+5. **Change Permissions to "Read" Only**:
+   - In the "Group or user names" section, select "Everyone."
+   - In the "Permissions for Everyone" section, click on "Full Control" to deselect all permissions.
+   - Now, select "Read" to grant read-only permissions to the file for everyone.
+   
+6. **Apply Changes**:
+   - Click "OK" to apply the new permissions.
+
+By following these steps, you have deleted the unnecessary "setup" folder and adjusted the permissions for the `ost-config.php` file to make it read-only for everyone. These clean-up steps ensure that your osTicket installation is secure and ready for use.
 </p>
 <br />
 
 <h2>osTicket Installed!</h2>
-
-osTicket is now installed and ready to be used. I used osTicket to understand how ticketing systems work amd how to resolve tickets. In IT Support, I have to work with a team to solve a person's IT related issues through the use of a ticketing system. I used this lab as a means to set up a ticketing system from the ground up and lay the grounds for what I will do in the future.
